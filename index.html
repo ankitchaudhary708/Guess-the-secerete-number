@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Number Game</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: white;
+         }
+          
+        .coldiv{
+            width: 100%;
+            height: 100vh;
+            border: 2px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            /* background-image: linear-gradient(to top, #09203f 0%, #537895 100%); */
+            background-image: linear-gradient(-60deg, #16a085 0%, #f4d03f 100%);
+           }
+
+        .subdiv{
+            border: 2px solid  white;
+            padding: 10px;
+            /* background-image: linear-gradient(60deg, #29323c 0%, #485563 100%); */
+            box-shadow: rgba(87, 165, 198, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+         }
+
+        .xyz{
+             
+            border: 2px solid white;
+            padding: 10px;
+            background-color: black; 
+            box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+          }
+
+        h1{
+            font-size: 40px;
+            /* text-shadow: 3px 2px 5px lightsalmon; */
+             
+        }
+
+        p{
+            font-size: 20px;
+            font-weight: 600;
+            /* text-shadow: 3px 2px 5px lightgreen; */
+
+        }
+
+        input{
+            font-size: 18px;
+            padding: 5px;
+            border-radius: 5px;
+            border: 3px solid white;
+            color: black;
+             
+          }
+
+          input:hover{
+             box-shadow: 2px 2px 2px 2px red;
+
+        }
+
+        button{
+            font-size: 18px;
+            padding: 5px;
+            border-radius: 10px;
+            color: black;
+            /* background-color: lightblue;
+            border: 3px solid white;
+              */
+        }
+
+        button:hover{
+             box-shadow: 2px 2px 2px 2px red;
+
+        }
+
+    </style>
+ </head>
+<body>
+
+     <div class="container">
+        <div class="row">
+            <div class="col coldiv ">
+                <div class="xyz"> 
+                <div class="subdiv">  
+
+                <div>
+                    <h1>Guess the Number Game</h1><br>
+                </div>   
+                <div>
+                    <p> Guess A Number Between 1 And 100 Number Can Be Anyone Try Your Luck:</p><br>
+                </div>  
+                <div> 
+                    <input type="text" id="guess" placeholder="Enter the number" min="1" max="100"><br><br>
+                </div>
+                <div>   
+                    <button onclick="checkGuess()">Submit Guess</button><br><br>
+                     <p id="message"></p><br>
+                </div> 
+                </div>
+            </div>
+            </div>
+            </div>
+        </div>
+     </div>
+ 
+  
+    
+    
+    <script>
+
+
+const secretNumber = Math.floor(Math.random() * 100) + 1;
+let attempts = 0;
+
+function checkGuess() {
+    const userGuess = parseInt(document.getElementById('guess').value);
+    
+    if (userGuess === secretNumber) {
+        document.getElementById('message').textContent = ` You guessed the number in ${attempts} attempts.`;
+    } else if (userGuess < secretNumber) {
+        document.getElementById('message').textContent = 'Try a higher number.';
+    } else {
+        document.getElementById('message').textContent = 'Try a lower number.';
+    }
+    
+    attempts++;
+}
+    </script>
+ </body>
+</html>
+
+
+
+
+
+<!-- <h1>Guess the Number Game</h1>
+<p>Guess a number between 1 and 100:</p>
+<input type="number" id="guess" min="1" max="100">
+<button onclick="checkGuess()">Submit Guess</button>
+<p id="message"></p> -->
